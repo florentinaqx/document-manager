@@ -33,6 +33,7 @@ const Card: React.FC<CardProps> = ({ id, title, thumbnail, onClick }) => {
       onClick={onClick}
     >
       <img src={thumbnail} alt={title} style={{ width: "100%" }} />
+      hereeeee
       <h3>{title}</h3>
     </div>
   );
