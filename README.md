@@ -1,52 +1,129 @@
-# Getting Started with Create React App
+Here’s a **README.md** template for your project:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# Document Manager - Coding Challenge
 
-In the project directory, you can run:
+This is a frontend project built with **React** and **TypeScript** that demonstrates document management functionality, including drag-and-drop reordering, image loading spinners, and card overlays. The goal is to showcase good coding practices and thoughtful design, adhering to the requirements from the provided coding challenge.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 🚀 **Features**
+- Display 5 documents as **cards** (3 in the first row, 2 in the second row).
+- Each card includes a unique **cat image thumbnail**.
+- Cards are **draggable and reorderable** using `react-beautiful-dnd`.
+- A **loading spinner** appears while images are loading.
+- **Clicking on a card** opens an overlay with a larger view of the image. 
+- **ESC key** closes the overlay.
+- Data is stored **locally** in the browser to persist across reloads.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠 **Tech Stack**
+- **React** (with hooks)
+- **TypeScript**
+- **react-beautiful-dnd** (for drag-and-drop functionality)
+- **CSS Grid/Flexbox** (for layout)
+- **Local Storage** (for data persistence)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📦 **Project Setup**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the repository:**
+   ```bash
+   git clone <your-repository-url>
+   cd document-manager
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Run the project:**
+   ```bash
+   npm start
+   ```
 
-### `npm run eject`
+4. Open your browser and navigate to `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🧱 **Code Structure**
+- **`App.tsx`**: Contains the main React component that renders the cards and handles drag-and-drop functionality.
+- **`App.css`**: Contains styling for the layout and cards.
+- **`documents.json`**: Simulated static JSON data containing document information (stored within the component for this demo).
+  
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 📝 **How to Use**
+1. **Drag and Drop**: Click and drag any card to reorder it.
+2. **Overlay View**: Click on a card to view the image in an overlay. Press the **ESC key** to close the overlay.
+3. **Automatic Save**: The order of the cards is saved to **local storage** every 5 seconds (if changes are made).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## 📄 **Local API Mock with MSW**
+We’ve mocked the backend API using **MSW (Mock Service Worker)** to simulate fetching data from an API and saving to local storage. This ensures a seamless frontend experience without the need for a real backend.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To start the mock service, install MSW:
+```bash
+npm install msw --save-dev
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-## more ...
+## 🐋 **Docker Deployment**
+This project can be containerized using **Docker Compose**. Run the following to spin up the services:
+```bash
+docker-compose up --build
+```
 
-MSW was not used due to technical difficulties.
-A custom mock API with localStorage was implemented to simulate REST endpoints.
-The application periodically saves data every 5 seconds.
+---
+
+## 🌐 **Demo on Vercel**
+If deployed to **Vercel**, the app will be available at the provided link. Ensure that the `vercel.json` configuration is set up correctly to serve static files.
+
+---
+
+## 🛑 **Known Issues**
+- **Drag-and-Drop Performance**: On slower devices, the drag animation might lag.
+- **Image Loading Spinner**: Spinners may flash briefly for cached images.
+  
+---
+
+## 💡 **Thought Process**
+1. **Simple Layout**: Used **CSS Grid** to align the cards in two rows. Chose grid because it provides better control over the layout than Flexbox for this scenario.
+2. **Drag-and-Drop**: Used `react-beautiful-dnd` to implement reordering functionality.
+3. **Local Storage**: Decided to use **local storage** to persist the order across page reloads. Mocked the API with **MSW** for a more realistic development environment.
+4. **Performance Considerations**: Avoided re-saving every time a change is made by implementing a **5-second save interval**.
+5. **Overlay Design**: Used a simple modal with the **ESC key** event listener for user convenience.
+
+---
+
+## ⚙️ **API Design (Optional)**
+If this project had a backend, the following API endpoints could be used:
+- **GET /documents**: Retrieve all documents.
+- **POST /documents**: Add a new document.
+- **PUT /documents/:id**: Update a specific document.
+- **DELETE /documents/:id**: Delete a document.
+
+---
+
+## 📧 **Contact**
+If you have any questions about this project, feel free to reach out. 
+
+---
+
+## 📑 **How to Submit**
+Please compress the project folder into a **ZIP** file and email it to `yash@raft.ai` or provide a **GitHub/Vercel link**.
+
+---
+
+## 🏁 **Conclusion**
+This project is a demonstration of my **React + TypeScript** skills, showing how to implement **drag-and-drop**, API simulation, and **local data persistence**. Thank you for the opportunity to take on this challenge!
+
+---
+
+Let me know if you need further adjustments! 😊
